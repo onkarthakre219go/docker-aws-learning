@@ -1,0 +1,49 @@
+import express from "express"
+import { createServer } from "http"
+import { Server } from "socket.io"
+import { YSocketIO } from "y-socket.io/dist/server"
+
+const app = express();
+
+app.use(express.static("public")); //is middleware that serves static files from a folder.
+
+const httpServer = createServer(app); 
+
+const io = new Server(httpServer, {
+    cors: {
+        origin: "*",
+        methods: [ 'GET', 'POST' ]
+    }
+});
+
+const ySocketIo = new YSocketIO(io);
+// Yjs set up into ySocketIO
+ySocketIo.initialize();
+
+
+app.get("/", (req, res) => {
+    res.status(200).json({
+        message: "hello world",
+        success: true
+    })
+})
+
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        message: "OK",
+        success: true
+    })
+})
+
+
+
+
+
+
+
+httpServer.listen(3000, () => {
+    console.log("Server is running on port 3000");
+})
+
+
+
