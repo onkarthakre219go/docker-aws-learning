@@ -6,7 +6,7 @@ command use for frontend initial
 
 // concept 
 CRDTs - Conflict free Replicated Data Types
-Basically, It allow to enable multiple user to edit concurranctly without conflits.
+Basically, It allow to enable multiple user to edit concurrently without conflits.
 Eg. Figma, Google Doc where use this. 
 To create a view of it , install - npm i @monaco-eitor/react
 To Sync the data of multiple user - use Y.js
@@ -49,13 +49,13 @@ use.app.use(express.static("public"));
 DOCKER concepts
 
 1. Create common file (Frontend/backend) - named as dockerfile
-2. To run and create image of it, use command => docker build -t backend .
+2. To run and create image of it, use command => docker build -t backend(folder Name) .
 3. To test your created image use => docker run -p 4000:3000 backend
 
---------------------------------
+-----------------------------------------
 Learn Multi-stage build (Production used)
 Stage 1. Build the Frondend [dist folder]
-Stage 2. Copy the dist folder contant in Backend/public folder
+Stage 2. Copy the dist folder content in Backend/public folder
 
 //////////////////
 
